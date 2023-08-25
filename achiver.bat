@@ -1,6 +1,11 @@
 @echo off
 color a
 title ARCHIVER
+        set host=TYPE HOST
+        set database=TYPE DATABASE
+        set port=TYPE PORT
+        set user=TYPE USER
+        set password=TYPE PASSWORD
 if exist config.fsf (
     config.fsf > (
         set /p host
@@ -14,13 +19,14 @@ if exist config.fsf (
     pause
     cls
     goto show
-) else (
+) 
+else (
     (
-        set host=TYPE HOST
-        set database=TYPE DATABASE
-        set port=TYPE PORT
-        set user=TYPE USER
-        set password=TYPE PASSWORD
+        echo %host%=TYPE HOST
+        echo %database%=TYPE DATABASE
+        echo %port%=TYPE PORT
+        echo %user%=TYPE USER
+        echo %password%=TYPE PASSWORD
     ) > config.fsf
     cls
     echo CONFIG FILE CREATED!
